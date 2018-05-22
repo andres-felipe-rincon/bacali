@@ -10,3 +10,177 @@
     flex-direction: row;
   }
 }
+
+.nav {
+  background: #ee4e36;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+
+  @media screen and (min-width: $break-medium) {
+    flex-direction: row;
+  }
+
+  li {
+    color: transparent;
+    display: none;
+    flex: 1;
+    text-align: center;
+    transition: height 1s ease;
+
+    @media screen and (min-width: $break-medium) {
+      color: inherit;
+      display: flex;
+      transition: all 0.2s ease;
+    }
+
+    &:not(:first-child) {
+      border-left: none;
+
+      @media screen and (min-width: $break-medium) {
+        border-left: 2px solid #ecf0f1;
+      }
+    }
+
+    &:hover {
+      background: #e67e22;
+    }
+
+    a {
+      color: white;
+      margin: 0 auto;
+      display: inline-block;
+      font-weight: 400;
+      padding: 20px 0;
+      text-align: center;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.menu {
+  widows: 100%;
+  list-style: none;
+
+  @media screen and (min-width: $break-medium) {
+    width: 90%;
+  }
+
+  #custom_html-2 {
+    min-height: 80px;
+  }
+
+  .button {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 5em auto;
+    right: 0;
+    left: 0;
+    padding: 20px 0;
+    min-height: 30px;
+    background: #285b9a;
+    border: 1px solid #285b9a;
+    overflow: hidden;
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    border-radius: 5px;
+
+    @media screen and (min-width: $break-medium) {
+      position: relative;
+      top: 0;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: #285b9a;
+      border-color: #285b9a;
+      background: white;
+    }
+  }
+}
+
+.nav-primary {
+  width: 100%;
+
+  .hamburger {
+    border: 3px solid #ff1c00;
+    border-radius: 5px;
+    display: inline-block;
+    height: 36px;
+    margin: 5px;
+    width: 36px;
+
+    @media screen and (min-width: $break-medium) {
+      display: none;
+    }
+
+    i,
+    i::before,
+    i::after {
+      cursor: pointer;
+      content: '';
+      width: 25px;
+      height: 4px;
+      background: #ecf0f1;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+
+    i {
+      display: block;
+      position: relative;
+      top: 16px;
+      left: 6px;
+      background: #ff1c00;
+    }
+
+    i::before {
+      position: absolute;
+      top: -8px;
+      background: #ff1c00;
+    }
+
+    i::after {
+      position: absolute;
+      top: 8px;
+      background: #ff1c00;
+    }
+  }
+
+  &.active {
+    .hamburger {
+      border-radius: 50%;
+    }
+
+    .nav li {
+      display: block;
+      height: initial;
+      color: inherit;
+    }
+
+    i {
+      background: transparent;
+    }
+
+    i::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    i::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}

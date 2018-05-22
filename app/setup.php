@@ -16,6 +16,12 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
+ * Theme custom logo
+ */
+
+add_theme_support( 'custom-logo' );
+
+/**
  * Theme setup
  */
 add_action('after_setup_theme', function () {
@@ -86,6 +92,10 @@ add_action('widgets_init', function () {
         'name'          => __('Footer', 'sage'),
         'id'            => 'sidebar-footer'
     ] + $config);
+    register_sidebar([
+        'name'          =>  __('Header', 'sage'),
+        'id'            =>  'custom-header-widget'
+    ]);
 });
 
 /**
